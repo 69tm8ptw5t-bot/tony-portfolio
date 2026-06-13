@@ -55,11 +55,11 @@
   filter: none;
 }
 
-/* Swiper Navigation */
+/* Swiper Navigation — 40% smaller */
 .project-carousel-swiper .swiper-button-next,
 .project-carousel-swiper .swiper-button-prev {
-  width: 36px;
-  height: 36px;
+  width: 22px;
+  height: 22px;
   background: rgba(20,20,20,0.7);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 50%;
@@ -74,7 +74,7 @@
 }
 .project-carousel-swiper .swiper-button-next::after,
 .project-carousel-swiper .swiper-button-prev::after {
-  font-size: 12px;
+  font-size: 8px;
   font-weight: bold;
 }
 

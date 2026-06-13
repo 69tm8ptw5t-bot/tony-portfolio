@@ -10,6 +10,7 @@ import NoiseOverlay from '@/components/NoiseOverlay'
 import SoundEffects from '@/components/SoundEffects'
 import PageTransition from '@/components/PageTransition'
 import ParticleField from '@/components/ParticleField'
+import LoadingScreen from '@/components/LoadingScreen'
 import { TransitionContext } from './TransitionContext'
 
 export default function LayoutShell({ children }: { children: React.ReactNode }) {
@@ -55,6 +56,7 @@ export default function LayoutShell({ children }: { children: React.ReactNode })
 
   return (
     <TransitionContext.Provider value={{ navigate }}>
+      <LoadingScreen />
       <div onMouseMove={handleMouseMove} className="relative min-h-screen" style={{ background: 'var(--bg)' }}>
         {/* ── Cursor-following gradient + particles (landing only) ── */}
         {isLanding && (

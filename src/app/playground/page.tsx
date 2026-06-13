@@ -1,19 +1,21 @@
 'use client'
 
 import { useRef, useState, useEffect } from 'react'
+import { useLang } from '@/components/LanguageProvider'
 
-const VIDEOS = [
-  { src: '/videos/playground0.webm', title: 'Zack D Films style' },
-  { src: '/videos/playground1.webm', title: 'IA Motion Capture Retarget' },
-  { src: '/videos/playground3.webm', title: 'Realtime FaceCapture with Arkit' },
-  { src: '/videos/playground4.webm', title: 'Stylized Animation' },
-  { src: '/videos/playground5.webm', title: 'IA rendering' },
-  { src: '/videos/playground6.webm', title: 'Lowpoly shorts style breackdown' },
-  { src: '/videos/playground7.webm', title: 'Low Poly assets with same atlas texture' },
-  { src: '/videos/playground8.webm', title: '3D animated infographic breackdown' },
+const VIDEO_SRCS = [
+  '/videos/playground0.webm',
+  '/videos/playground1.webm',
+  '/videos/playground3.webm',
+  '/videos/playground4.webm',
+  '/videos/playground5.webm',
+  '/videos/playground6.webm',
+  '/videos/playground7.webm',
+  '/videos/playground8.webm',
 ]
 
 export default function PlaygroundPage() {
+  const { t } = useLang()
   const videoRefs = useRef<Map<string, HTMLVideoElement>>(new Map())
   const [playing, setPlaying] = useState<Map<string, boolean>>(new Map())
 
@@ -35,7 +37,7 @@ export default function PlaygroundPage() {
         className="font-heading text-[22px] md:text-[22px] uppercase tracking-[0.2em] text-center"
         style={{ color: 'var(--text-muted)', margin: '0 0 32px 0' }}
       >
-        Playground
+        {t.playground.title}
       </h2>
 
       <div
@@ -48,7 +50,7 @@ export default function PlaygroundPage() {
           padding: '0 16px 80px',
         }}
       >
-        {VIDEOS.map(({ src, title }) => (
+        {VIDEO_SRCS.map((src, i) => (
           <div
             key={src}
             className="rounded-xl overflow-hidden"
@@ -99,7 +101,7 @@ export default function PlaygroundPage() {
                 className="font-heading text-xs uppercase tracking-[0.15em]"
                 style={{ color: 'var(--text)', margin: 0 }}
               >
-                {title}
+                {t.playground.videos[i]}
               </h3>
             </div>
           </div>

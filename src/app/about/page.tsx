@@ -333,9 +333,11 @@ export default function About() {
 
       <div className="max-w-[1100px] mx-auto px-5 md:px-6 pb-10 md:pb-16">
 
-        <Reveal delay={0} margin="-40%">
+        <div className="pt-8 md:pt-12">
+        <Reveal delay={0}>
           <h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-5 font-semibold text-center" style={{ color: 'var(--text-muted)' }}>By the Numbers</h2>
         </Reveal>
+        </div>
         <div className="mb-14"><StatsRow /></div>
 
         <Reveal delay={0}>
