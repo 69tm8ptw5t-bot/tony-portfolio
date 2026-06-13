@@ -84,7 +84,7 @@ export default function Footer() {
                style={{ color: 'var(--accent-secondary)' }}
                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--accent-secondary)'}>hello@tonydarko.work</a>
-            <span className="font-sans text-[10px] md:text-xs" style={{ color: 'var(--text-secondary)' }}>Remote Full time/Contract Available</span>
+            <span className="font-sans text-[10px] md:text-xs" style={{ color: 'var(--text-secondary)' }}>{t.footer.remoteAvailable}</span>
           </motion.div>
 
           <motion.div className="flex flex-col gap-0.5" variants={fadeUp} initial="hidden" whileInView="visible" custom={3} viewport={{ once: true }}>

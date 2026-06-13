@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import CVDropdown from '@/components/CVDropdown'
 import TransitionLink from '@/components/TransitionLink'
+import { useLang } from '@/components/LanguageProvider'
 
 const socialLinks = [
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/antonio-cordero-4b9693235/' },
@@ -19,6 +20,7 @@ const socialIcons: Record<string, React.ReactNode> = {
 }
 
 export default function Landing() {
+  const { t } = useLang()
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const [showControls, setShowControls] = useState(false)
@@ -118,7 +120,7 @@ export default function Landing() {
                     </svg>
                   </div>
                   <span className="font-heading text-xs md:text-sm font-bold uppercase tracking-[0.15em]" style={{ color: 'var(--accent)' }}>
-                    Watch Reel
+                    {t.hero.watchReel}
                   </span>
                 </div>
               )}
@@ -157,12 +159,12 @@ export default function Landing() {
           <TransitionLink href="/work"
             className="w-full rounded-xl py-3 font-heading font-bold text-xs uppercase tracking-[0.15em] no-underline text-center hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200"
             style={{ background: 'var(--accent)', color: 'var(--button-text)' }}>
-            View Portfolio
+            {t.hero.viewPortfolio}
           </TransitionLink>
           <TransitionLink href="/about"
             className="w-full rounded-xl py-3 font-heading font-bold text-xs uppercase tracking-[0.15em] no-underline text-center hover:scale-[1.02] active:scale-[0.98] transition-transform duration-200"
             style={{ border: '1px solid var(--border)', color: 'var(--text-secondary)', background: 'rgba(255,255,255,0.03)' }}>
-            About Me
+            {t.hero.aboutMe}
           </TransitionLink>
         </div>
 
@@ -188,7 +190,8 @@ export default function Landing() {
 }
 
 function TypewriterLanding() {
-  const words = ['3D Generalist', 'CGI Artist']
+  const { t } = useLang()
+  const words = t.hero.typewriterWords
   const [text, setText] = useState('')
   const [wordIdx, setWordIdx] = useState(0)
   const [phase, setPhase] = useState<'typing' | 'pausing' | 'deleting'>('typing')

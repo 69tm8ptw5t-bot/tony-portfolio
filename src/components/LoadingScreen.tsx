@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLang } from './LanguageProvider'
 
 export default function LoadingScreen() {
+  const { t } = useLang()
   const [progress, setProgress] = useState(0)
   const [done, setDone] = useState(false)
 
@@ -71,7 +73,7 @@ export default function LoadingScreen() {
             </div>
 
             <span className="font-sans text-[10px] uppercase tracking-[0.25em]" style={{ color: 'var(--text-muted)' }}>
-              {progress < 100 ? 'Loading...' : 'Ready'}
+              {progress < 100 ? t.loading.text : 'Ready'}
             </span>
           </div>
         </motion.div>

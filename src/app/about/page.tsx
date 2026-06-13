@@ -5,6 +5,7 @@ import { motion, useInView, useMotionValue, useSpring, useTransform } from 'fram
 import Image from 'next/image'
 import TransitionLink from '@/components/TransitionLink'
 import ParticleField from '@/components/ParticleField'
+import { useLang } from '@/components/LanguageProvider'
 
 // ── Reversible text reveal (clip-path) ──────────
 function Reveal({ children, delay = 0, margin = '-20%' }: { children: React.ReactNode; delay?: number; margin?: string }) {
@@ -164,6 +165,7 @@ function RecognitionCard({ year, title, detail, index }: { year: string; title: 
 }
 
 function StatsRow() {
+  const { t } = useLang()
   const ref = useRef(null)
   const inView = useInView(ref, { once: false, margin: '-30px' })
   return (
@@ -171,10 +173,10 @@ function StatsRow() {
       initial="hidden" animate={inView ? 'visible' : 'hidden'}
       variants={{ visible: { transition: { staggerChildren: 0.08 } }, hidden: {} }}>
       {[
-        { value: 25000000, suffix: '+', label: 'Organic Views' },
-        { value: 5, suffix: '+', label: 'Years Experience' },
-        { value: 300, suffix: '+', label: 'Students Trained' },
-        { value: 4, suffix: '', label: 'Intl. Exhibitions' },
+        { value: 25000000, suffix: '+', label: t.stats.views },
+        { value: 5, suffix: '+', label: t.stats.experience },
+        { value: 300, suffix: '+', label: t.stats.students },
+        { value: 4, suffix: '', label: t.stats.exhibitions },
       ].map((s) => (
         <motion.div key={s.label} className="text-center"
           variants={{ hidden: { opacity: 0, y: 20, scale: 0.9 }, visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.4, ease: easeFn } } }}>
@@ -189,11 +191,12 @@ function StatsRow() {
 }
 
 function ScrollIndicator() {
+  const { t } = useLang()
   return (
     <motion.div className="flex flex-col items-center gap-2 mt-10 md:mt-12"
       initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false }} transition={{ delay: 0.5 }}>
       <motion.span className="font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium" style={{ color: 'var(--text-muted)' }}>
-        Scroll to explore
+        {t.about.scrollExplore}
       </motion.span>
       <motion.div className="w-5 h-8 md:w-6 md:h-10 rounded-full border-2 flex items-start justify-center pt-1.5"
         style={{ borderColor: 'var(--text-muted)' }}
@@ -207,6 +210,7 @@ function ScrollIndicator() {
 
 // ── Hero with bloom + hover glow + particles ──
 function HeroSection() {
+  const { t } = useLang()
   const mouseX = useMotionValue(0.5)
   const mouseY = useMotionValue(0.5)
   const springX = useSpring(mouseX, { stiffness: 30, damping: 25 })
@@ -269,7 +273,7 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          I own the full production pipeline, optimizing real-time 3D for WebXR and leveraging AI workflows to build high-volume, hook-driven content.
+          {t.about.heroPipeline}
         </motion.p>
 
         {/* Scroll indicator */}
@@ -283,6 +287,7 @@ function HeroSection() {
 
 // ── Main page ───────────────────────────────────
 export default function About() {
+  const { t } = useLang()
   const [imgHover, setImgHover] = useState(false)
 
   const timeline = [
@@ -335,25 +340,25 @@ export default function About() {
 
         <div className="pt-8 md:pt-12">
         <Reveal delay={0}>
-          <h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-5 font-semibold text-center" style={{ color: 'var(--text-muted)' }}>By the Numbers</h2>
+          <h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-5 font-semibold text-center" style={{ color: 'var(--text-muted)' }}>{t.stats.byTheNumbers}</h2>
         </Reveal>
         </div>
         <div className="mb-14"><StatsRow /></div>
 
         <Reveal delay={0}>
-          <h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-6 font-semibold" style={{ color: 'var(--text-muted)' }}>Skills</h2>
+          <h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-6 font-semibold" style={{ color: 'var(--text-muted)' }}>{t.about.skills}</h2>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 mb-14">
           {skillGroups.map((s) => <SkillBar key={s.label} label={s.label} items={s.items} pct={s.pct} />)}
         </div>
 
         <Reveal delay={0}>
-          <h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-6 font-semibold" style={{ color: 'var(--text-muted)' }}>Experience</h2>
+          <h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-6 font-semibold" style={{ color: 'var(--text-muted)' }}>{t.about.experience}</h2>
         </Reveal>
         <div className="mb-14">{timeline.map((t, i) => <TimelineItem key={i} {...t} index={i} />)}</div>
 
         <Reveal delay={0}>
-          <h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-5 font-semibold" style={{ color: 'var(--text-muted)' }}>Teaching & Community</h2>
+          <h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-5 font-semibold" style={{ color: 'var(--text-muted)' }}>{t.about.teaching}</h2>
         </Reveal>
         <Stagger className="mb-14">
           {teaching.map((t, i) => (
@@ -366,7 +371,7 @@ export default function About() {
         </Stagger>
 
         <Reveal delay={0}>
-          <h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-6 font-semibold" style={{ color: 'var(--text-muted)' }}>Recognition</h2>
+          <h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-6 font-semibold" style={{ color: 'var(--text-muted)' }}>{t.about.recognition}</h2>
         </Reveal>
         <div className="flex flex-col gap-3 mb-14">
           {achievements.map((a, i) => <RecognitionCard key={i} {...a} index={i} />)}
@@ -374,19 +379,19 @@ export default function About() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
           <Stagger>
-            <Reveal delay={0}><h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-4 font-semibold" style={{ color: 'var(--text-muted)' }}>Education</h2></Reveal>
+            <Reveal delay={0}><h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-4 font-semibold" style={{ color: 'var(--text-muted)' }}>{t.about.education}</h2></Reveal>
             <motion.div variants={fadeItem} className="p-4 rounded-lg border" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }} whileHover={{ scale: 1.01, borderColor: 'var(--accent)' }}>
-              <p className="font-heading text-sm font-semibold m-0" style={{ color: 'var(--text)' }}>Bachelor's in Graphic Design</p>
-              <p className="font-sans text-xs m-0 mt-1" style={{ color: 'var(--text-secondary)' }}>BUAP — Benemérita Universidad Autónoma de Puebla · 2016–2021</p>
+              <p className="font-heading text-sm font-semibold m-0" style={{ color: 'var(--text)' }}>{t.about.educationDegree}</p>
+              <p className="font-sans text-xs m-0 mt-1" style={{ color: 'var(--text-secondary)' }}>{t.about.educationSchool}</p>
             </motion.div>
           </Stagger>
           <Stagger>
-            <Reveal delay={0}><h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-4 font-semibold" style={{ color: 'var(--text-muted)' }}>Languages</h2></Reveal>
+            <Reveal delay={0}><h2 className="font-heading text-xs md:text-sm uppercase tracking-[0.18em] mb-4 font-semibold" style={{ color: 'var(--text-muted)' }}>{t.about.languages}</h2></Reveal>
             <motion.div variants={fadeItem} className="p-4 rounded-lg border flex gap-6 flex-wrap" style={{ background: 'var(--bg-card)', borderColor: 'var(--border)' }} whileHover={{ scale: 1.01, borderColor: 'var(--accent)' }}>
-              {[['Spanish', 'Native'], ['English', 'Professional (C1)'], ['Russian', 'Intermediate B1']].map(([l, lvl]) => (
-                <div key={l}>
-                  <p className="font-heading text-sm font-semibold m-0" style={{ color: 'var(--text)' }}>{l}</p>
-                  <p className="font-sans text-xs m-0 mt-0.5 font-medium" style={{ color: 'var(--text-secondary)' }}>{lvl}</p>
+              {t.about.languagesList.map(({ name, level }) => (
+                <div key={name}>
+                  <p className="font-heading text-sm font-semibold m-0" style={{ color: 'var(--text)' }}>{name}</p>
+                  <p className="font-sans text-xs m-0 mt-0.5 font-medium" style={{ color: 'var(--text-secondary)' }}>{level}</p>
                 </div>
               ))}
             </motion.div>
@@ -416,7 +421,7 @@ export default function About() {
                 initial={{ opacity: 0 }} animate={{ opacity: imgHover ? 1 : 0 }} transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }} />
             </div>
             <div className="p-2 text-center">
-              <p className="font-sans text-[11px] italic m-0 font-medium" style={{ color: 'var(--text-muted)' }}>Always looking to learn something new ✦</p>
+              <p className="font-sans text-[11px] italic m-0 font-medium" style={{ color: 'var(--text-muted)' }}>{t.about.alwaysLearning}</p>
             </div>
           </motion.div>
 

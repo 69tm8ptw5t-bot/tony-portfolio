@@ -8,6 +8,7 @@ export interface Translations {
     showreel: string
     cv: string
     playground: string
+    language: string
   }
   hero: {
     title1: string
@@ -16,6 +17,10 @@ export interface Translations {
     ctaWork: string
     ctaAbout: string
     scroll: string
+    watchReel: string
+    viewPortfolio: string
+    aboutMe: string
+    typewriterWords: string[]
   }
   stats: {
     byTheNumbers: string
@@ -34,6 +39,12 @@ export interface Translations {
     languages: string
     contact: string
     cta: string
+    scrollExplore: string
+    alwaysLearning: string
+    educationDegree: string
+    educationSchool: string
+    languagesList: { name: string; level: string }[]
+    heroPipeline: string
   }
   footer: {
     tagline: string
@@ -41,6 +52,7 @@ export interface Translations {
     contact: string
     social: string
     copyright: string
+    remoteAvailable: string
   }
   playground: {
     title: string
@@ -59,7 +71,7 @@ export interface Translations {
 
 export const translations: Record<Lang, Translations> = {
   en: {
-    nav: { home: 'Home', work: 'Work', about: 'About', showreel: 'Showreel', cv: 'CV', playground: 'Playground' },
+    nav: { home: 'Home', work: 'Work', about: 'About', showreel: 'Showreel', cv: 'CV', playground: 'Playground', language: 'Language' },
     hero: {
       title1: '3D Motion Designer & CGI Generalist',
       tagline1: 'I own the full production pipeline, optimizing real-time 3D for WebXR and leveraging AI workflows to build high-volume, hook-driven content.',
@@ -67,6 +79,10 @@ export const translations: Record<Lang, Translations> = {
       ctaWork: 'See Portfolio →',
       ctaAbout: 'About Me',
       scroll: 'Scroll to explore',
+      watchReel: 'Watch Reel',
+      viewPortfolio: 'View Portfolio',
+      aboutMe: 'About Me',
+      typewriterWords: ['3D Generalist', 'CGI Artist'],
     },
     stats: {
       byTheNumbers: 'By the Numbers',
@@ -85,6 +101,16 @@ export const translations: Record<Lang, Translations> = {
       languages: 'Languages',
       contact: 'Contact',
       cta: 'See Portfolio →',
+      scrollExplore: 'Scroll to explore',
+      alwaysLearning: 'Always looking to learn something new ✦',
+      educationDegree: "Bachelor's in Graphic Design",
+      educationSchool: 'BUAP — Benemérita Universidad Autónoma de Puebla · 2016–2021',
+      languagesList: [
+        { name: 'Spanish', level: 'Native' },
+        { name: 'English', level: 'Professional (C1)' },
+        { name: 'Russian', level: 'Intermediate B1' },
+      ],
+      heroPipeline: 'I own the full production pipeline, optimizing real-time 3D for WebXR and leveraging AI workflows to build high-volume, hook-driven content.',
     },
     footer: {
       tagline: '3D Motion Designer  ·  CGI Generalist',
@@ -92,6 +118,7 @@ export const translations: Record<Lang, Translations> = {
       contact: 'Contact',
       social: 'Social',
       copyright: 'Tony Darko. All rights reserved.',
+      remoteAvailable: 'Remote Full time/Contract Available',
     },
     playground: {
       title: 'Playground',
@@ -108,10 +135,10 @@ export const translations: Record<Lang, Translations> = {
     },
     work: { title: 'Selected Work' },
     showreel: { title: 'Showreel' },
-    loading: { text: 'Loading experience' },
+    loading: { text: 'Loading...' },
   },
   es: {
-    nav: { home: 'Inicio', work: 'Trabajos', about: 'Sobre mí', showreel: 'Showreel', cv: 'CV', playground: 'Playground' },
+    nav: { home: 'Inicio', work: 'Trabajos', about: 'Sobre mí', showreel: 'Showreel', cv: 'CV', playground: 'Playground', language: 'Idioma' },
     hero: {
       title1: '3D Motion Designer & CGI Generalist',
       tagline1: 'Manejo el pipeline completo de producción, optimizando 3D en tiempo real para WebXR y aplicando flujos de IA para generar contenido de alto impacto.',
@@ -119,6 +146,10 @@ export const translations: Record<Lang, Translations> = {
       ctaWork: 'Ver Portafolio →',
       ctaAbout: 'Sobre Mí',
       scroll: 'Desliza para explorar',
+      watchReel: 'Ver Reel',
+      viewPortfolio: 'Ver Portafolio',
+      aboutMe: 'Sobre Mí',
+      typewriterWords: ['3D Generalist', 'Artista CGI'],
     },
     stats: {
       byTheNumbers: 'En Números',
@@ -137,6 +168,16 @@ export const translations: Record<Lang, Translations> = {
       languages: 'Idiomas',
       contact: 'Contacto',
       cta: 'Ver Portafolio →',
+      scrollExplore: 'Desliza para explorar',
+      alwaysLearning: 'Siempre buscando aprender algo nuevo ✦',
+      educationDegree: 'Licenciatura en Diseño Gráfico',
+      educationSchool: 'BUAP — Benemérita Universidad Autónoma de Puebla · 2016–2021',
+      languagesList: [
+        { name: 'Español', level: 'Nativo' },
+        { name: 'Inglés', level: 'Profesional (C1)' },
+        { name: 'Ruso', level: 'Intermedio B1' },
+      ],
+      heroPipeline: 'Manejo el pipeline completo de producción, optimizando 3D en tiempo real para WebXR y aplicando flujos de IA para generar contenido de alto impacto.',
     },
     footer: {
       tagline: '3D Motion Designer  ·  CGI Generalist',
@@ -144,6 +185,7 @@ export const translations: Record<Lang, Translations> = {
       contact: 'Contacto',
       social: 'Redes',
       copyright: 'Tony Darko. Todos los derechos reservados.',
+      remoteAvailable: 'Disponible Remoto Tiempo Completo/Contrato',
     },
     playground: {
       title: 'Playground',
@@ -160,10 +202,10 @@ export const translations: Record<Lang, Translations> = {
     },
     work: { title: 'Trabajos Seleccionados' },
     showreel: { title: 'Showreel' },
-    loading: { text: 'Cargando experiencia' },
+    loading: { text: 'Cargando...' },
   },
   ru: {
-    nav: { home: 'Главная', work: 'Работы', about: 'Обо мне', showreel: 'Шоурил', cv: 'Резюме', playground: 'Playground' },
+    nav: { home: 'Главная', work: 'Работы', about: 'Обо мне', showreel: 'Шоурил', cv: 'Резюме', playground: 'Playground', language: 'Язык' },
     hero: {
       title1: '3D Motion Designer & CGI Generalist',
       tagline1: 'Управляю полным производственным циклом, оптимизируя 3D в реальном времени для WebXR и используя ИИ для создания высокообъемного контента.',
@@ -171,6 +213,10 @@ export const translations: Record<Lang, Translations> = {
       ctaWork: 'Смотреть Портфолио →',
       ctaAbout: 'Обо Мне',
       scroll: 'Листайте для изучения',
+      watchReel: 'Смотреть Рил',
+      viewPortfolio: 'Смотреть Портфолио',
+      aboutMe: 'Обо Мне',
+      typewriterWords: ['3D Generalist', 'CGI Художник'],
     },
     stats: {
       byTheNumbers: 'В Цифрах',
@@ -189,6 +235,16 @@ export const translations: Record<Lang, Translations> = {
       languages: 'Языки',
       contact: 'Контакты',
       cta: 'Смотреть Портфолио →',
+      scrollExplore: 'Листайте для изучения',
+      alwaysLearning: 'Всегда стремлюсь узнать что-то новое ✦',
+      educationDegree: 'Бакалавр графического дизайна',
+      educationSchool: 'BUAP — Автономный университет Пуэблы · 2016–2021',
+      languagesList: [
+        { name: 'Испанский', level: 'Родной' },
+        { name: 'Английский', level: 'Профессиональный (C1)' },
+        { name: 'Русский', level: 'Средний B1' },
+      ],
+      heroPipeline: 'Управляю полным производственным циклом, оптимизируя 3D в реальном времени для WebXR и используя ИИ для создания высокообъемного контента.',
     },
     footer: {
       tagline: '3D Motion Designer  ·  CGI Generalist',
@@ -196,6 +252,7 @@ export const translations: Record<Lang, Translations> = {
       contact: 'Контакты',
       social: 'Соцсети',
       copyright: 'Tony Darko. Все права защищены.',
+      remoteAvailable: 'Удаленная работа Полный день/Контракт',
     },
     playground: {
       title: 'Playground',
@@ -212,7 +269,7 @@ export const translations: Record<Lang, Translations> = {
     },
     work: { title: 'Избранные Работы' },
     showreel: { title: 'Шоурил' },
-    loading: { text: 'Загрузка опыта' },
+    loading: { text: 'Загрузка...' },
   },
 }
 

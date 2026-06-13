@@ -36,12 +36,28 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Tony Portfolio",
+    images: [
+      {
+        url: "/images/miniatura.png",
+        width: 1200,
+        height: 630,
+        alt: "Tony Darko — 3D Motion Designer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Tony — 3D Motion Designer",
     description:
       "Cinematic · Stylized · AI-Accelerated Production. 25M+ views.",
+    images: ["/images/miniatura.png"],
+  },
+  alternates: {
+    languages: {
+      en: "/",
+      es: "/",
+      ru: "/",
+    },
   },
 };
 

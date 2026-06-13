@@ -122,7 +122,7 @@ export default function Navbar() {
                   className="font-heading text-lg no-underline rounded-lg px-4 py-3 transition-colors duration-200 flex items-center justify-between w-full cursor-pointer border-none"
                   style={{ color: 'var(--text)', background: langOpen ? 'var(--bg-card)' : 'transparent' }}>
                   <span className="flex items-center gap-2">
-                    Language
+                    {t.nav.language}
                     <span className="font-sans text-[11px] uppercase tracking-[0.1em] font-medium" style={{ color: 'var(--accent)' }}>{lang.toUpperCase()}</span>
                   </span>
                   <motion.span animate={{ rotate: langOpen ? 180 : 0 }} transition={{ duration: 0.2 }} style={{ fontSize: '10px', color: 'var(--text-muted)' }}>▼</motion.span>
@@ -162,9 +162,9 @@ export default function Navbar() {
                     <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.15 }}>
                       <div className="flex flex-col gap-0.5 px-4 pb-2">
                         {[
-                          { label: 'CV-EN', href: '/cv/CV-en.pdf' },
-                          { label: 'CV-RU', href: '/cv/CV-ru.pdf' },
-                          { label: 'CV-ES', href: '/cv/CV-es.pdf' },
+                          { label: 'CV-EN', href: '/cv/Tony_Darko_CV_EN.pdf' },
+                          { label: 'CV-RU', href: '/cv/Tony_Darko_CV_RU.pdf' },
+                          { label: 'CV-ES', href: '/cv/Tony_Darko_CV_ES.pdf' },
                         ].map((item) => (
                           <a key={item.label} href={item.href} download
                             className="block w-full px-4 py-2.5 rounded-lg text-sm font-sans no-underline transition-colors duration-150"

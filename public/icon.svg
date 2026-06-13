@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <rect width="48" height="48" rx="10" fill="#0A0A0A"></rect>
+
+  <g fill="none" stroke="#D8D8D8" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+
+    <!-- Cara superior -->
+    <path d="M24 8 L38 16 L24 24 L10 16 Z"></path>
+
+    <!-- Laterales -->
+    <path d="M10 16 V32 L24 40 V24"></path>
+    <path d="M38 16 V32 L24 40"></path>
+
+    <!-- Diagonal dinámica -->
+    <path d="M24 8 L24 24"></path>
+
+  </g>
+</svg>
