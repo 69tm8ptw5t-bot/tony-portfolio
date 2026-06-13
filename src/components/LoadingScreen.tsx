@@ -8,38 +8,39 @@ export default function LoadingScreen() {
   const [done, setDone] = useState(false)
 
   useEffect(() => {
-    // Check if page was already loaded (soft navigation)
-    if (document.readyState === 'complete' && document.querySelectorAll('video').length === 0) {
+    // Quick exit: no videos on page (soft navigation)
+    const hasVideos = document.querySelectorAll('video').length > 0
+    if (!hasVideos) {
       setProgress(100)
-      setTimeout(() => setDone(true), 300)
+      setTimeout(() => setDone(true), 200)
       return
     }
 
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        const videos = document.querySelectorAll('video')
-        let loaded = 0
-        videos.forEach((v) => {
-          if (v.readyState >= 2) loaded++
-        })
-        const pct = videos.length > 0 ? Math.round((loaded / videos.length) * 100) : 60
-        // Clamp between current and 95
-        const next = Math.max(prev, Math.min(pct, 95))
-        return next
-      })
+    // Wait only for the first video (hero reel) or timeout 3s
+    const heroVideo = document.querySelector('video')
+    let resolved = false
+
+    const check = setInterval(() => {
+      if (heroVideo && heroVideo.readyState >= 2) {
+        setProgress(100)
+        resolved = true
+        clearInterval(check)
+        setTimeout(() => setDone(true), 300)
+      } else {
+        setProgress((prev) => Math.min(prev + 8, 85))
+      }
     }, 200)
 
-    // Max 4 seconds
     const timeout = setTimeout(() => {
-      setProgress(100)
-      setTimeout(() => {
-        setDone(true)
-        clearInterval(interval)
-      }, 400)
-    }, 4000)
+      if (!resolved) {
+        setProgress(100)
+        clearInterval(check)
+        setTimeout(() => setDone(true), 300)
+      }
+    }, 3000)
 
     return () => {
-      clearInterval(interval)
+      clearInterval(check)
       clearTimeout(timeout)
     }
   }, [])
@@ -51,10 +52,9 @@ export default function LoadingScreen() {
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
           style={{ background: 'var(--bg)' }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
         >
           <div className="flex flex-col items-center gap-6">
-            {/* Logo / Name */}
             <h1
               className="font-heading font-bold leading-[1.0] tracking-tight"
               style={{ fontSize: 'clamp(28px, 6vw, 48px)', color: 'var(--text)' }}
@@ -62,7 +62,6 @@ export default function LoadingScreen() {
               <span style={{ color: 'var(--accent)' }}>TONY</span> DARKO
             </h1>
 
-            {/* Progress bar */}
             <div className="w-[200px] md:w-[280px] h-[2px] rounded-full overflow-hidden" style={{ background: 'var(--border)' }}>
               <motion.div
                 className="h-full rounded-full"
@@ -72,7 +71,7 @@ export default function LoadingScreen() {
             </div>
 
             <span className="font-sans text-[10px] uppercase tracking-[0.25em]" style={{ color: 'var(--text-muted)' }}>
-              {progress < 100 ? 'Loading experience...' : 'Ready'}
+              {progress < 100 ? 'Loading...' : 'Ready'}
             </span>
           </div>
         </motion.div>

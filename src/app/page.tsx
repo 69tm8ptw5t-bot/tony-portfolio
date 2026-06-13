@@ -54,8 +54,12 @@ export default function Landing() {
 
   const handleFullscreen = () => {
     if (!videoRef.current) return
-    if (videoRef.current.requestFullscreen) {
-      videoRef.current.requestFullscreen()
+    const v = videoRef.current
+    // iOS/mobile Safari: use webkitEnterFullscreen
+    if ((v as any).webkitEnterFullscreen) {
+      ;(v as any).webkitEnterFullscreen()
+    } else if (v.requestFullscreen) {
+      v.requestFullscreen().catch(() => {})
     }
   }
 

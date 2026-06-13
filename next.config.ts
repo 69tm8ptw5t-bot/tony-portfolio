@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
                "img-src 'self' data: blob:",
                "media-src 'self' blob:",
                "font-src 'self'",
-               "connect-src 'self' blob: https://cloud.umami.is",
+               "connect-src 'self' blob: https://cloud.umami.is https://gateway.umami.is https://api-gateway.umami.dev",
               "frame-ancestors 'none'",
               "form-action 'self'",
             ].join("; "),
