@@ -4,9 +4,9 @@ import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const items = [
-  { label: 'CV-EN', href: '/cv/CV-en.pdf' },
-  { label: 'CV-RU', href: '/cv/CV-ru.pdf' },
-  { label: 'CV-ES', href: '/cv/CV-es.pdf' },
+  { label: 'CV-EN', href: '/cv/Tony_Darko_CV_EN.pdf' },
+  { label: 'CV-RU', href: '/cv/Tony_Darko_CV_RU.pdf' },
+  { label: 'CV-ES', href: '/cv/Tony_Darko_CV_ES.pdf' },
 ]
 
 interface CVDropdownProps {

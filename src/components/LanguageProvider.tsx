@@ -27,6 +27,12 @@ export default function LanguageProvider({ children }: { children: React.ReactNo
     const saved = localStorage.getItem('lang') as Lang | null
     if (saved && ['en', 'es', 'ru'].includes(saved)) {
       setLangState(saved)
+    } else {
+      // Detect browser/OS language
+      const browserLang = navigator.language?.slice(0, 2) || ''
+      if (browserLang === 'es') setLangState('es')
+      else if (browserLang === 'ru') setLangState('ru')
+      else setLangState('en')
     }
     setMounted(true)
   }, [])

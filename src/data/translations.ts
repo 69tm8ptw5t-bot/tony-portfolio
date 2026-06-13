@@ -18,6 +18,7 @@ export interface Translations {
     scroll: string
   }
   stats: {
+    byTheNumbers: string
     views: string
     experience: string
     students: string
@@ -43,13 +44,16 @@ export interface Translations {
   }
   playground: {
     title: string
+    videos: string[]
   }
   work: {
     title: string
   }
   showreel: {
     title: string
-    description: string
+  }
+  loading: {
+    text: string
   }
 }
 
@@ -65,6 +69,7 @@ export const translations: Record<Lang, Translations> = {
       scroll: 'Scroll to explore',
     },
     stats: {
+      byTheNumbers: 'By the Numbers',
       views: 'Organic Views',
       experience: 'Years Experience',
       students: 'Students Trained',
@@ -88,21 +93,35 @@ export const translations: Record<Lang, Translations> = {
       social: 'Social',
       copyright: 'Tony Darko. All rights reserved.',
     },
-    playground: { title: 'Playground' },
+    playground: {
+      title: 'Playground',
+      videos: [
+        'Zack D Films style',
+        'IA Motion Capture Retarget',
+        'Realtime FaceCapture with Arkit',
+        'Stylized Animation',
+        'IA rendering',
+        'Lowpoly shorts style breackdown',
+        'Low Poly assets with same atlas texture',
+        '3D animated infographic breackdown',
+      ],
+    },
     work: { title: 'Selected Work' },
-    showreel: { title: 'Showreel', description: 'Selected work' },
+    showreel: { title: 'Showreel' },
+    loading: { text: 'Loading experience' },
   },
   es: {
     nav: { home: 'Inicio', work: 'Trabajos', about: 'Sobre mí', showreel: 'Showreel', cv: 'CV', playground: 'Playground' },
     hero: {
       title1: '3D Motion Designer & CGI Generalist',
-      tagline1: 'Domino todo el pipeline de producción, optimizando 3D en tiempo real para WebXR y usando flujos de IA para crear contenido de alto impacto.',
-      tagline2: '25M+ vistas. 0% relleno. Listo mundialmente.',
+      tagline1: 'Manejo el pipeline completo de producción, optimizando 3D en tiempo real para WebXR y aplicando flujos de IA para generar contenido de alto impacto.',
+      tagline2: '25M+ vistas. Sin rodeos. Listo en todo el mundo.',
       ctaWork: 'Ver Portafolio →',
       ctaAbout: 'Sobre Mí',
       scroll: 'Desliza para explorar',
     },
     stats: {
+      byTheNumbers: 'En Números',
       views: 'Vistas Orgánicas',
       experience: 'Años de Experiencia',
       students: 'Estudiantes Capacitados',
@@ -112,7 +131,7 @@ export const translations: Record<Lang, Translations> = {
       title: 'Sobre Mí',
       skills: 'Habilidades',
       experience: 'Experiencia',
-      teaching: 'Enseñanza & Comunidad',
+      teaching: 'Enseñanza y Comunidad',
       recognition: 'Reconocimientos',
       education: 'Educación',
       languages: 'Idiomas',
@@ -126,21 +145,35 @@ export const translations: Record<Lang, Translations> = {
       social: 'Redes',
       copyright: 'Tony Darko. Todos los derechos reservados.',
     },
-    playground: { title: 'Playground' },
+    playground: {
+      title: 'Playground',
+      videos: [
+        'Estilo Zack D Films',
+        'Retarget de Captura de Movimiento con IA',
+        'Captura Facial en Tiempo Real con Arkit',
+        'Animación Estilizada',
+        'Renderizado con IA',
+        'Short Lowpoly — Desglose de estilo',
+        'Assets Low Poly con misma textura atlas',
+        'Infografía animada en 3D — Desglose',
+      ],
+    },
     work: { title: 'Trabajos Seleccionados' },
-    showreel: { title: 'Showreel', description: 'Trabajos seleccionados' },
+    showreel: { title: 'Showreel' },
+    loading: { text: 'Cargando experiencia' },
   },
   ru: {
     nav: { home: 'Главная', work: 'Работы', about: 'Обо мне', showreel: 'Шоурил', cv: 'Резюме', playground: 'Playground' },
     hero: {
       title1: '3D Motion Designer & CGI Generalist',
-      tagline1: 'Я владею полным производственным конвейером, оптимизируя 3D в реальном времени для WebXR и используя ИИ для создания высокообъемного контента.',
-      tagline2: '25M+ просмотров. 0% воды. Готов к работе по всему миру.',
+      tagline1: 'Управляю полным производственным циклом, оптимизируя 3D в реальном времени для WebXR и используя ИИ для создания высокообъемного контента.',
+      tagline2: '25M+ просмотров. Без лишнего. Готов к работе по всему миру.',
       ctaWork: 'Смотреть Портфолио →',
       ctaAbout: 'Обо Мне',
       scroll: 'Листайте для изучения',
     },
     stats: {
+      byTheNumbers: 'В Цифрах',
       views: 'Органических просмотров',
       experience: 'Лет Опыта',
       students: 'Обучено Студентов',
@@ -150,7 +183,7 @@ export const translations: Record<Lang, Translations> = {
       title: 'Обо Мне',
       skills: 'Навыки',
       experience: 'Опыт',
-      teaching: 'Преподавание & Сообщество',
+      teaching: 'Преподавание и Сообщество',
       recognition: 'Признание',
       education: 'Образование',
       languages: 'Языки',
@@ -164,9 +197,22 @@ export const translations: Record<Lang, Translations> = {
       social: 'Соцсети',
       copyright: 'Tony Darko. Все права защищены.',
     },
-    playground: { title: 'Playground' },
+    playground: {
+      title: 'Playground',
+      videos: [
+        'Стиль Zack D Films',
+        'Ретаргетинг захвата движений с ИИ',
+        'Захват лиц в реальном времени с Arkit',
+        'Стилизованная анимация',
+        'Рендеринг с ИИ',
+        'Lowpoly shorts — разбор стиля',
+        'Low Poly ассеты с одной atlas текстурой',
+        '3D анимированная инфографика — разбор',
+      ],
+    },
     work: { title: 'Избранные Работы' },
-    showreel: { title: 'Шоурил', description: 'Избранные работы' },
+    showreel: { title: 'Шоурил' },
+    loading: { text: 'Загрузка опыта' },
   },
 }
 
