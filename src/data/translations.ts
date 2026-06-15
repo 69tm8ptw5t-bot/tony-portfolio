@@ -8,6 +8,7 @@ export interface Translations {
     showreel: string
     cv: string
     playground: string
+    iavideo: string
     language: string
   }
   hero: {
@@ -58,6 +59,9 @@ export interface Translations {
     title: string
     videos: string[]
   }
+  iavideo: {
+    title: string
+  }
   work: {
     title: string
   }
@@ -71,7 +75,7 @@ export interface Translations {
 
 export const translations: Record<Lang, Translations> = {
   en: {
-    nav: { home: 'Home', work: 'Work', about: 'About', showreel: 'Showreel', cv: 'CV', playground: 'Playground', language: 'Language' },
+    nav: { home: 'Home', work: 'Work', about: 'About', showreel: 'Showreel', cv: 'CV', playground: 'Playground', iavideo: 'IA Video', language: 'Language' },
     hero: {
       title1: '3D Motion Designer & CGI Generalist',
       tagline1: 'I own the full production pipeline, optimizing real-time 3D for WebXR and leveraging AI workflows to build high-volume, hook-driven content.',
@@ -133,12 +137,13 @@ export const translations: Record<Lang, Translations> = {
         '3D animated infographic breackdown',
       ],
     },
+    iavideo: { title: 'IA Video' },
     work: { title: 'Selected Work' },
     showreel: { title: 'Showreel' },
     loading: { text: 'Loading...' },
   },
   es: {
-    nav: { home: 'Inicio', work: 'Trabajos', about: 'Sobre mí', showreel: 'Showreel', cv: 'CV', playground: 'Playground', language: 'Idioma' },
+    nav: { home: 'Inicio', work: 'Trabajos', about: 'Sobre mí', showreel: 'Showreel', cv: 'CV', playground: 'Playground', iavideo: 'IA Vídeo', language: 'Idioma' },
     hero: {
       title1: '3D Motion Designer & CGI Generalist',
       tagline1: 'Manejo el pipeline completo de producción, optimizando 3D en tiempo real para WebXR y aplicando flujos de IA para generar contenido de alto impacto.',
@@ -200,12 +205,13 @@ export const translations: Record<Lang, Translations> = {
         'Infografía animada en 3D — Desglose',
       ],
     },
+    iavideo: { title: 'IA Vídeo' },
     work: { title: 'Trabajos Seleccionados' },
     showreel: { title: 'Showreel' },
     loading: { text: 'Cargando...' },
   },
   ru: {
-    nav: { home: 'Главная', work: 'Работы', about: 'Обо мне', showreel: 'Шоурил', cv: 'Резюме', playground: 'Playground', language: 'Язык' },
+    nav: { home: 'Главная', work: 'Работы', about: 'Обо мне', showreel: 'Шоурил', cv: 'Резюме', playground: 'Playground', iavideo: 'ИИ Видео', language: 'Язык' },
     hero: {
       title1: '3D Motion Designer & CGI Generalist',
       tagline1: 'Управляю полным производственным циклом, оптимизируя 3D в реальном времени для WebXR и используя ИИ для создания высокообъемного контента.',
@@ -267,6 +273,7 @@ export const translations: Record<Lang, Translations> = {
         '3D анимированная инфографика — разбор',
       ],
     },
+    iavideo: { title: 'ИИ Видео' },
     work: { title: 'Избранные Работы' },
     showreel: { title: 'Шоурил' },
     loading: { text: 'Загрузка...' },

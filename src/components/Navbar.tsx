@@ -29,6 +29,7 @@ export default function Navbar() {
     { href: '/about', label: t.nav.home },
     { href: '/work', label: t.nav.work },
     { href: '/playground', label: t.nav.playground },
+    { href: '/ia-video', label: t.nav.iavideo },
   ]
 
   return (
